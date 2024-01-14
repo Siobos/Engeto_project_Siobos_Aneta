@@ -29,3 +29,12 @@ WHERE value_type_code = '5958' AND industry_branch_code IS NOT NULL
 GROUP BY industry_branch_code, payroll_year;
 
 CZECHIA_PRICE
+Nefunguje: 
+SELECT 
+category_code, cpc.name, cpc.price_value, cpc.price_unit, 
+AVG(value) AS avg_value,
+year(date_from),
+FROM czechia_price cp
+GROUP BY year(date_from)
+LEFT JOIN czechia_price_category cpc 
+	ON cp.category_code = cpc.code;
