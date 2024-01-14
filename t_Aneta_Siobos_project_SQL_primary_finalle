@@ -29,12 +29,13 @@ WHERE value_type_code = '5958' AND industry_branch_code IS NOT NULL
 GROUP BY industry_branch_code, payroll_year;
 
 CZECHIA_PRICE
-Nefunguje: 
+Průměrné hodnoty ale neodpovídají:
 SELECT 
-category_code, cpc.name, cpc.price_value, cpc.price_unit, 
+YEAR(date_from) AS YEAR,
 AVG(value) AS avg_value,
-year(date_from),
+category_code,
+cpc.name, cpc.price_value, cpc.price_unit
 FROM czechia_price cp
-GROUP BY year(date_from)
 LEFT JOIN czechia_price_category cpc 
-	ON cp.category_code = cpc.code;
+	ON cp.category_code = cpc.code
+GROUP BY year(date_from);
