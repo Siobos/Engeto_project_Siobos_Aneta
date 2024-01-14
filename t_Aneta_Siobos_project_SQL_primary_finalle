@@ -31,11 +31,11 @@ GROUP BY industry_branch_code, payroll_year;
 CZECHIA_PRICE
 Průměrné hodnoty ale neodpovídají:
 SELECT 
-YEAR(date_from) AS YEAR,
-AVG(value) AS avg_value,
+ROUND(AVG(value),2) AS avg_value,
+YEAR(date_from) AS year,
 category_code,
 cpc.name, cpc.price_value, cpc.price_unit
 FROM czechia_price cp
 LEFT JOIN czechia_price_category cpc 
 	ON cp.category_code = cpc.code
-GROUP BY year(date_from);
+GROUP BY year(date_from), category_code;
