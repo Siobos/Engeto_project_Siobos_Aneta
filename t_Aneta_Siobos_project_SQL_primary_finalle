@@ -65,3 +65,20 @@ GROUP BY year(date_from), category_code;
 
 ALTER TABLE czechia_price_selection 
 ADD COLUMN price_value_unit varchar(255);
+
+select * 
+concat(price_value , price_unit)
+FROM czechia_price_selection cps 
+
+NEFUNGUJE
+CREATE TABLE czechia_price_selection
+SELECT 
+ROUND(AVG(value),2) AS avg_value,
+YEAR(date_from) AS year,
+category_code,
+cpc.name, 
+concat (cpc.price_value, cpc.price_unit) AS price_value_ price_unit
+FROM czechia_price cp
+LEFT JOIN czechia_price_category cpc 
+	ON cp.category_code = cpc.code
+GROUP BY year(date_from), category_code;
