@@ -63,4 +63,5 @@ LEFT JOIN czechia_price_category cpc
 	ON cp.category_code = cpc.code
 GROUP BY year(date_from), category_code;
 
-
+ALTER TABLE czechia_price_selection 
+ADD COLUMN price_value_unit varchar(255);
