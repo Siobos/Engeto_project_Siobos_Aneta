@@ -64,3 +64,10 @@ FROM czechia_price cp
 LEFT JOIN czechia_price_category cpc 
 	ON cp.category_code = cpc.code
 GROUP BY year(date_from), category_code;
+
+SLOUČENÍ TABULEK CZECHIA_PRICE_SELECTION A CZECHIA_PAYROLL_SELECTION
+SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci AS unit
+FROM czechia_payroll_selection cps 
+UNION ALL
+SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci
+FROM czechia_price_selection cps2
