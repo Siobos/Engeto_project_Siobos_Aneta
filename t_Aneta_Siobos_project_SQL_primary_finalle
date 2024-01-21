@@ -71,3 +71,11 @@ FROM czechia_payroll_selection cps
 UNION ALL
 SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci
 FROM czechia_price_selection cps2
+
+VYTVOŘENÍ FINAL TABULKY 1
+CREATE TABLE t_Aneta_Siobos_project_SQL_primary_final
+SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci AS unit
+FROM czechia_payroll_selection cps 
+UNION ALL
+SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci
+FROM czechia_price_selection cps2
