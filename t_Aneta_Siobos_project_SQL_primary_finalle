@@ -99,8 +99,7 @@ CASE
 	ELSE 'decrease'
 END AS increase_decrease_wages
 FROM czechia_payroll_selection cps 
-WHERE category_code = 'A'
-ORDER BY YEAR, category_code;
+ORDER BY category_code, `year`;
 
 
 SELECT cps1.*, cps2.*,
