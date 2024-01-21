@@ -97,3 +97,14 @@ SELECT YEAR, avg(avg_value)
 FROM czechia_payroll_selection cps 
 WHERE YEAR IN (2006, 2018)
 GROUP BY year
+
+Vnořený select, nefunguje:
+SELECT YEAR, ROUND(avg(avg_value),2)
+FROM czechia_payroll_selection cps  
+WHERE YEAR IN (2006, 2018)
+GROUP BY year
+WHERE category_code IN (
+    SELECT avg_value 
+    FROM czechia_price_selection cps2 
+    WHERE category_code IN (111301, 114201)
+   );
