@@ -79,3 +79,15 @@ FROM czechia_payroll_selection cps
 UNION ALL
 SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci
 FROM czechia_price_selection cps2
+
+1) Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+Nefunguje
+SELECT *
+CASE 
+WHEN avg_value(YEAR '2001')>= avg_value(YEAR '2000') THEN 'increase'
+ELSE 'decrease'
+END AS increase_decrease_wages
+FROM czechia_payroll_selection cps 
+WHERE category_code = 'A'
+ORDER BY YEAR, category_code;
+
