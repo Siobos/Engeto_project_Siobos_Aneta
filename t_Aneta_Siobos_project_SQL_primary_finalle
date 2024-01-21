@@ -136,7 +136,12 @@ SELECT YEAR, avg(avg_value)
 FROM t_aneta_siobos_project_sql_primary_final taspspf  
 WHERE YEAR IN (2006, 2018) AND category_code IN ('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S')
 GROUP BY YEAR
-	
+
+a to spojit s tímhle:
+SELECT YEAR, avg(avg_value)
+FROM t_aneta_siobos_project_sql_primary_final taspspf  
+WHERE YEAR IN (2006, 2018) AND category_code IN ('111301','114201')
+GROUP BY YEAR	
 
 Vnořený select, nefunguje:
 SELECT YEAR, ROUND(avg(avg_value),2)
