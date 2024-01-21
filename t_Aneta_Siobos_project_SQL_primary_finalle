@@ -91,6 +91,38 @@ FROM czechia_payroll_selection cps
 WHERE category_code = 'A'
 ORDER BY YEAR, category_code;
 
+Ostatní varianty:
+Funguje:
+SELECT *,
+CASE 
+	WHEN avg_value > '11500' THEN 'increase'
+	ELSE 'decrease'
+END AS increase_decrease_wages
+FROM czechia_payroll_selection cps 
+WHERE category_code = 'A'
+ORDER BY YEAR, category_code;
+
+
+SELECT cps1.*, cps2.*,
+    CASE 
+        WHEN cps1.avg_value > cps2.avg_value THEN 'increase'
+        ELSE 'decrease'
+    END AS increase_decrease_wages
+FROM (
+    SELECT * 
+    FROM czechia_payroll_selection 
+    WHERE category_code = 'A' AND year = 2000
+) AS cps1
+JOIN (
+    SELECT * 
+    FROM czechia_payroll_selection 
+    WHERE category_code = 'A' AND year = 2001
+) AS cps2;
+
+
+
+
+
 2) Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
 část vnořeného selectu:
 SELECT YEAR, avg(avg_value)
