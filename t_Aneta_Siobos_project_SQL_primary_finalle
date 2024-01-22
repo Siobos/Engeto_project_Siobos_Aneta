@@ -164,14 +164,19 @@ ORDER BY year
 	) results
 FROM t_aneta_siobos_project_sql_primary_final taspspf 
 
-Nefunguje:
+WITH t_aneta_siobos_project_sql_primary_final_calculations AS (
 SELECT *,
 LEAD(avg_value, 1) OVER (
 PARTITION BY category_code
 ORDER BY year
 	) results
-
-IF results - avg_value > 1 'increase',
-IF results - avg_value < 1 'dercerase', '-'
-AS difference
-FROM t_aneta_siobos_project_sql_primary_final taspspf 
+FROM t_aneta_siobos_project_sql_primary_final taspspf
+)
+SELECT *,
+	CASE
+        WHEN results > avg_value THEN 'increase'
+        WHEN results < avg_value THEN 'decrease'
+        WHEN results = avg_value THEN 'stagnation'
+        ELSE '-'
+    END AS grow
+FROM t_aneta_siobos_project_sql_primary_final_calculations;
