@@ -173,3 +173,4 @@ SELECT category_code, name, unit, ROUND(AVG(lead_function-avg_value)/(avg_value)
 FROM czechia_price_selection_calculation
 GROUP BY category_code
 
+4) Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
