@@ -202,3 +202,33 @@ FROM czechia_price_selection_calculation cpsc
 INNER JOIN czechia_payroll_selection cps 
 ON cpsc.YEAR = cps.YEAR
 GROUP BY YEAR
+
+Další varianty, potřeba vytvořit tabulky a pojit inner joinem:
+WITH czechia_price_selection_YOY_change AS (
+SELECT *,
+LEAD(avg_value, 1) OVER (
+PARTITION BY category_code
+ORDER BY year
+	) lead_function
+FROM czechia_price_selection
+)
+SELECT year, avg_value, lead_function, ROUND((lead_function-avg_value)/(avg_value)*100,0) AS YOY_change
+FROM czechia_price_selection_YOY_change
+GROUP BY YEAR 
+
+WITH czechia_payroll_selection_YOY_change AS (
+SELECT *,
+LEAD(avg_value, 1) OVER (
+PARTITION BY category_code
+ORDER BY year
+	) lead_function
+FROM czechia_payroll_selection
+)
+SELECT year, avg_value, lead_function, ROUND((lead_function-avg_value)/(avg_value)*100,2) AS YOY_change
+FROM czechia_payroll_selection_YOY_change
+GROUP BY YEAR 
+
+SELECT year, avg_value, lead_function, YOY_change
+FROM czechia_price_selection_YOY_change cpsyc
+INNER JOIN czechia_payroll_selection_YOY_change cpsyc2
+ON cpsyc.YEAR = cpsyc2.YEAR;
