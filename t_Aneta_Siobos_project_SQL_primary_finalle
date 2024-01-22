@@ -156,4 +156,10 @@ GROUP BY YEAR, category_code
 
 3) Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
 
-
+První pokus, co hodí na konci sloupec s posunutím hodnot o 1 ted tam dát nějak ty výpočty:
+SELECT *,
+LEAD(avg_value, 1) OVER (
+PARTITION BY category_code
+ORDER BY year
+	) results
+FROM t_aneta_siobos_project_sql_primary_final taspspf 
