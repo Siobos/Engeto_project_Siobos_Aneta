@@ -163,3 +163,15 @@ PARTITION BY category_code
 ORDER BY year
 	) results
 FROM t_aneta_siobos_project_sql_primary_final taspspf 
+
+Nefunguje:
+SELECT *,
+LEAD(avg_value, 1) OVER (
+PARTITION BY category_code
+ORDER BY year
+	) results
+
+IF results - avg_value > 1 'increase',
+IF results - avg_value < 1 'dercerase', '-'
+AS difference
+FROM t_aneta_siobos_project_sql_primary_final taspspf 
