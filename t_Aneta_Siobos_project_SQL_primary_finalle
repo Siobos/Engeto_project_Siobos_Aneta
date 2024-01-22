@@ -81,20 +81,7 @@ SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci
 FROM czechia_price_selection cps2
 
 1) Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
-Nefunguje
-SELECT *,
-CASE 
-	WHEN avg_value IN (YEAR = 2000) THEN '-'
-	WHEN avg_value IN (YEAR = 2000) < avg_value IN (YEAR = 2001) THEN 'increase'
-	WHEN avg_value IN (YEAR = 2001) < avg_value IN (YEAR = 2002) THEN 'increase'	
-	ELSE 'decrease'
-END AS increase_decrease_wages
-FROM czechia_payroll_selection cps 
-ORDER BY category_code, year;
-
-
-Ostatní varianty:
-Funguje:
+Příprava:
 SELECT *,
 CASE 
 	WHEN avg_value > '11500' THEN 'increase'
@@ -103,25 +90,22 @@ END AS increase_decrease_wages
 FROM czechia_payroll_selection cps 
 ORDER BY category_code, year;
 
-
-SELECT cps1.*, cps2.*,
-    CASE 
-        WHEN cps1.avg_value > cps2.avg_value THEN 'increase'
-        ELSE 'decrease'
-    END AS increase_decrease_wages
-FROM (
-    SELECT * 
-    FROM czechia_payroll_selection 
-    WHERE category_code = 'A' AND year = 2000
-) AS cps1
-JOIN (
-    SELECT * 
-    FROM czechia_payroll_selection 
-    WHERE category_code = 'A' AND year = 2001
-) AS cps2;
-
-
-
+WITH t_aneta_siobos_project_sql_primary_final_calculations AS (
+SELECT *,
+LEAD(avg_value, 1) OVER (
+PARTITION BY category_code
+ORDER BY year
+	) results
+FROM t_aneta_siobos_project_sql_primary_final taspspf
+)
+SELECT *,
+	CASE
+        WHEN results > avg_value THEN 'increase'
+        WHEN results < avg_value THEN 'decrease'
+        WHEN results = avg_value THEN 'stagnation'
+        ELSE '-'
+    END AS grow
+FROM t_aneta_siobos_project_sql_primary_final_calculations;
 
 
 2) Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
