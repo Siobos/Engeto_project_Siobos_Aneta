@@ -148,19 +148,14 @@ ORDER BY year
 	) results
 FROM t_aneta_siobos_project_sql_primary_final taspspf 
 
-WITH t_aneta_siobos_project_sql_primary_final_calculations AS (
+Funguje:
+WITH czechia_price_selection_calculation AS (
 SELECT *,
 LEAD(avg_value, 1) OVER (
 PARTITION BY category_code
 ORDER BY year
-	) results
-FROM t_aneta_siobos_project_sql_primary_final taspspf
+	) lead_function
+FROM czechia_price_selection
 )
-SELECT *,
-	CASE
-        WHEN results > avg_value THEN 'increase'
-        WHEN results < avg_value THEN 'decrease'
-        WHEN results = avg_value THEN 'stagnation'
-        ELSE '-'
-    END AS grow
-FROM t_aneta_siobos_project_sql_primary_final_calculations;
+SELECT *, ROUND((lead_function-avg_value)/(avg_value)*100,0) AS YOY_change
+FROM czechia_price_selection_calculation;
