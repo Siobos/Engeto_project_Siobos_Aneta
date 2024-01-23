@@ -233,8 +233,8 @@ FROM czechia_price_selection_YOY_change cpsyc
 INNER JOIN czechia_payroll_selection_YOY_change cpsyc2
 ON cpsyc.YEAR = cpsyc2.YEAR;
 
+Final script:
 
-Zkoušela Julie takto, ale nesí YoY change z druhé tab.:
 WITH czechia_price_selection_YOY_change AS (
     SELECT *,
            LEAD(avg_value, 1) OVER (PARTITION BY category_code ORDER BY YEAR) lead_function
@@ -248,10 +248,12 @@ WITH czechia_price_selection_YOY_change AS (
 SELECT 
     p.year,
     p.avg_value,
+    pr.YEAR,
     p.lead_function AS lead_function_price,
-    ROUND((p.lead_function - p.avg_value) / p.avg_value * 100, 0) AS YOY_change_price,
+    pr.avg_value,
+    ROUND((p.lead_function - p.avg_value) / p.avg_value * 100, 2) AS YOY_change_price,
     pr.lead_function AS lead_function_payroll,
     ROUND((pr.lead_function - pr.avg_value) / pr.avg_value * 100, 2) AS YOY_change_payroll
 FROM czechia_price_selection_YOY_change p
-JOIN czechia_payroll_selection_YOY_change pr ON p.year = pr.year
-GROUP BY p.year;
+INNER JOIN czechia_payroll_selection_YOY_change pr ON p.year = pr.year
+GROUP BY pr.year;
