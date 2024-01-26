@@ -32,6 +32,7 @@ Wages for the monitored period (2011 - 2020) are decreasing in the sectors and y
 
 RQ 2) How many liters of milk and kilograms of bread can be bought in the first and last comparable periods in the available price and wage data?
 Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
+The common comparable periods are 2006 and 2018. The average salary for all industries in 2006 and 2018 and the average price of 2 categories in 2006 and 2018 are compared.
 
 
 
