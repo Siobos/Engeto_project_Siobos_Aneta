@@ -83,8 +83,7 @@ FROM czechia_price_selection_YOY_change p
 INNER JOIN czechia_payroll_selection_YOY_change pr ON p.year = pr.year
 GROUP BY pr.year;
 
-RQ 5) 
-
+RQ 5) Does the level of GDP affect changes in wages and food prices? Or, if the GDP increases more significantly in one year, will this be reflected in food prices or wages in the same or the following year by a more significant increase?
 
 Nefunguje, vycházejí špatné hodnoty:
 CREATE TABLE czechia_price_and_payroll_selection
