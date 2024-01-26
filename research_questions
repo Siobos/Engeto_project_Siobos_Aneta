@@ -31,7 +31,7 @@ UNION
 SELECT YEAR, avg_value, unit
 FROM t_aneta_siobos_project_sql_primary_final taspspf  
 WHERE YEAR IN (2006, 2018) AND category_code IN ('111301','114201')
-GROUP BY YEAR, category_code 
+GROUP BY YEAR, category_code;
 
 RQ 3) Which food category is increasing in price the slowest (has the lowest percentage year-on-year increase)?
 
@@ -58,7 +58,7 @@ FROM czechia_price_selection
 )
 SELECT category_code, name, unit, ROUND(AVG(lead_function-avg_value)/(avg_value)*100,2) AS AVG_YOY_change
 FROM czechia_price_selection_calculation
-GROUP BY category_code
+GROUP BY category_code;
 
 RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)?
 
