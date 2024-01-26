@@ -31,11 +31,17 @@ Wages for the monitored period (2011 - 2020) are decreasing in the sectors and y
 2020	R	Kulturní, zábavní a rekreační činnosti
 
 RQ 2) How many liters of milk and kilograms of bread can be bought in the first and last comparable periods in the available price and wage data?
-Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
-The common comparable periods are 2006 and 2018. The average salary for all industries in 2006 and 2018 and the average price of 2 categories in 2006 and 2018 are compared.
+The common comparable periods are 2006 and 2018. The average salary for all industries in 2006 and 2018 and the average price of 2 categories in 2006 and 2018 are compared. 
+On average in 2006, it is possible to buy 1297 kilograms of bread or 1482 liters of milk. In 2018, it is possible to purchase 1,356 kilograms of bread or 1,627 liters of milk.
 
+year	unit in czech	CZK	category_code
+2006	Kč	20753,74	all sectors	
+2018	Kč	32535,89	all sectors	
 
-
+2006	1kg	16,00	bread	
+2006	1l	14,00	milk	
+2018	1kg	24,00	bread	
+2018	1l	20,00	milk	
 
 
 Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
