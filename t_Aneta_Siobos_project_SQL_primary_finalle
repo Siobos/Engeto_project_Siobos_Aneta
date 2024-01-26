@@ -1,33 +1,5 @@
 CZECHIA_PAYROLL
 
-SELECT 
-	industry_branch_code, payroll_year, 
-	AVG(value) AS avg_value
-FROM czechia_payroll cp 
-WHERE value_type_code = '5958' AND industry_branch_code IS NOT NULL
-GROUP BY industry_branch_code, payroll_year;
-
-
-SELECT 
-	industry_branch_code, payroll_year, cpib.name,
-	ROUND(AVG(value),2) AS avg_value
-FROM czechia_payroll cp 
-	LEFT JOIN czechia_payroll_industry_branch cpib 
-	ON cp.industry_branch_code = cpib.code	
-WHERE value_type_code = '5958' AND industry_branch_code IS NOT NULL
-GROUP BY industry_branch_code, payroll_year;
-
-SELECT 
-	industry_branch_code, payroll_year, cpib.name, cpu.name,
-	ROUND(AVG(value),2) AS avg_value
-FROM czechia_payroll cp 
-	LEFT JOIN czechia_payroll_industry_branch cpib 
-	ON cp.industry_branch_code = cpib.code	
-	LEFT JOIN czechia_payroll_unit cpu
-	ON cp.unit_code = cpu.code	
-WHERE value_type_code = '5958' AND industry_branch_code IS NOT NULL
-GROUP BY industry_branch_code, payroll_year;
-
 CREATE TABLE czechia_payroll_selection
 SELECT 
 	industry_branch_code, payroll_year, cpib.name, cpu.name AS unit,
@@ -41,17 +13,6 @@ WHERE value_type_code = '5958' AND industry_branch_code IS NOT NULL
 GROUP BY industry_branch_code, payroll_year;
 
 CZECHIA_PRICE
-Průměrné hodnoty ale neodpovídají:
-SELECT 
-ROUND(AVG(value),2) AS avg_value,
-YEAR(date_from) AS year,
-category_code,
-cpc.name, cpc.price_value, cpc.price_unit
-FROM czechia_price cp
-LEFT JOIN czechia_price_category cpc 
-	ON cp.category_code = cpc.code
-GROUP BY year(date_from), category_code;
-
 
 CREATE TABLE czechia_price_selection
 SELECT 
@@ -65,14 +26,9 @@ LEFT JOIN czechia_price_category cpc
 	ON cp.category_code = cpc.code
 GROUP BY year(date_from), category_code;
 
-SLOUČENÍ TABULEK CZECHIA_PRICE_SELECTION A CZECHIA_PAYROLL_SELECTION
-SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci AS unit
-FROM czechia_payroll_selection cps 
-UNION ALL
-SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci
-FROM czechia_price_selection cps2
+MERGING NEW TABLES AS PRIMARY FINAL TABLE: t_Aneta_Siobos_project_SQL_primary_final
+Note: Solving the error (Illegal mix of collations (utf8mb3_czech_ci,IMPLICIT) and (utf16_general_ci,IMPLICIT) for operation 'UNION') using: COLLATE utf8_general_ci
 
-VYTVOŘENÍ FINAL TABULKY 1
 CREATE TABLE t_Aneta_Siobos_project_SQL_primary_final
 SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci AS unit
 FROM czechia_payroll_selection cps 
@@ -80,15 +36,8 @@ UNION ALL
 SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci
 FROM czechia_price_selection cps2
 
-1) Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
-Příprava:
-SELECT *,
-CASE 
-	WHEN avg_value > '11500' THEN 'increase'
-	ELSE 'decrease'
-END AS increase_decrease_wages
-FROM czechia_payroll_selection cps 
-ORDER BY category_code, year;
+RESEARCH QUESTIONS (RQ): 
+RQ 1) Are wages rising in all industries over the years, or falling in some?
 
 WITH t_aneta_siobos_project_sql_primary_final_calculations AS (
 SELECT *,
@@ -107,27 +56,8 @@ SELECT *,
     END AS grow
 FROM t_aneta_siobos_project_sql_primary_final_calculations;
 
+RQ 2) How many liters of milk and kilograms of bread can be bought in the first and last comparable periods in the available price and wage data?
 
-2) Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
-část vnořeného selectu:
-SELECT YEAR, avg(avg_value)
-FROM czechia_payroll_selection cps 
-WHERE YEAR IN (2006, 2018)
-GROUP BY year
-
-nebo>
-SELECT YEAR, avg(avg_value)
-FROM t_aneta_siobos_project_sql_primary_final taspspf  
-WHERE YEAR IN (2006, 2018) AND category_code IN ('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S')
-GROUP BY YEAR
-
-a to spojit s tímhle:
-SELECT YEAR, avg(avg_value)
-FROM t_aneta_siobos_project_sql_primary_final taspspf  
-WHERE YEAR IN (2006, 2018) AND category_code IN ('111301','114201')
-GROUP BY YEAR	
-
-Výsledek:
 SELECT YEAR, ROUND(avg(avg_value),2) AS avg_value, unit
 FROM t_aneta_siobos_project_sql_primary_final taspspf  
 WHERE YEAR IN (2006, 2018) AND category_code IN ('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S')
@@ -138,17 +68,8 @@ FROM t_aneta_siobos_project_sql_primary_final taspspf
 WHERE YEAR IN (2006, 2018) AND category_code IN ('111301','114201')
 GROUP BY YEAR, category_code 
 
-3) Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
+RQ 3) Which food category is increasing in price the slowest (has the lowest percentage year-on-year increase)?
 
-První pokus, co hodí na konci sloupec s posunutím hodnot o 1 ted tam dát nějak ty výpočty:
-SELECT *,
-LEAD(avg_value, 1) OVER (
-PARTITION BY category_code
-ORDER BY year
-	) results
-FROM t_aneta_siobos_project_sql_primary_final taspspf 
-
-Funguje:
 WITH czechia_price_selection_calculation AS (
 SELECT *,
 LEAD(avg_value, 1) OVER (
@@ -160,7 +81,8 @@ FROM czechia_price_selection
 SELECT *, ROUND((lead_function-avg_value)/(avg_value)*100,0) AS YOY_change
 FROM czechia_price_selection_calculation;
 
-Lepší detail, final:
+Better detail:
+
 WITH czechia_price_selection_calculation AS (
 SELECT *,
 LEAD(avg_value, 1) OVER (
@@ -173,67 +95,7 @@ SELECT category_code, name, unit, ROUND(AVG(lead_function-avg_value)/(avg_value)
 FROM czechia_price_selection_calculation
 GROUP BY category_code
 
-4) Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
-Příprava:
-WITH czechia_price_selection_calculation AS (
-SELECT *,
-LEAD(avg_value, 1) OVER (
-PARTITION BY category_code
-ORDER BY year
-	) lead_function
-FROM czechia_price_selection
-)
-SELECT *, ROUND((lead_function-avg_value)/(avg_value)*100,0) AS YOY_change
-FROM czechia_price_selection_calculation
-GROUP BY YEAR
-
-
-Nefunguje inner join:
-WITH czechia_price_selection_calculation AS (
-SELECT *,
-LEAD(avg_value, 1) OVER (
-PARTITION BY category_code
-ORDER BY year
-	) lead_function
-FROM czechia_price_selection
-)
-SELECT *, ROUND((lead_function-avg_value)/(avg_value)*100,0) AS YOY_change
-FROM czechia_price_selection_calculation cpsc
-INNER JOIN czechia_payroll_selection cps 
-ON cpsc.YEAR = cps.YEAR
-GROUP BY YEAR
-
-Další varianty, potřeba vytvořit tabulky a pojit inner joinem:
-WITH czechia_price_selection_YOY_change AS (
-SELECT *,
-LEAD(avg_value, 1) OVER (
-PARTITION BY category_code
-ORDER BY year
-	) lead_function
-FROM czechia_price_selection
-)
-SELECT year, avg_value, lead_function, ROUND((lead_function-avg_value)/(avg_value)*100,0) AS YOY_change
-FROM czechia_price_selection_YOY_change
-GROUP BY YEAR 
-
-WITH czechia_payroll_selection_YOY_change AS (
-SELECT *,
-LEAD(avg_value, 1) OVER (
-PARTITION BY category_code
-ORDER BY year
-	) lead_function
-FROM czechia_payroll_selection
-)
-SELECT year, avg_value, lead_function, ROUND((lead_function-avg_value)/(avg_value)*100,2) AS YOY_change
-FROM czechia_payroll_selection_YOY_change
-GROUP BY YEAR 
-
-SELECT year, avg_value, lead_function, YOY_change
-FROM czechia_price_selection_YOY_change cpsyc
-INNER JOIN czechia_payroll_selection_YOY_change cpsyc2
-ON cpsyc.YEAR = cpsyc2.YEAR;
-
-Final script:
+RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)?
 
 WITH czechia_price_selection_YOY_change AS (
     SELECT *,
@@ -257,3 +119,5 @@ SELECT
 FROM czechia_price_selection_YOY_change p
 INNER JOIN czechia_payroll_selection_YOY_change pr ON p.year = pr.year
 GROUP BY pr.year;
+
+RQ 5) 
