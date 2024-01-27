@@ -1,7 +1,7 @@
 # Engeto_project_Siobos_Aneta
 Engeto Certification project from 2023/2024
 
-Entry
+ENTRY
 This is a project for obtaining data analyst certification. The data sets that have been provided can be used to obtain a suitable data base. The desired output of the project is 2 tables (t_{name}_{surname}_project_SQL_...) from which the research questions can be answered and SQL scipts as well. 
 
 Data sets that can be used to obtain a suitable data base:
@@ -22,10 +22,11 @@ Additional tables:
 countries - All kinds of information about countries in the world, for example the capital, currency, national food or average height of the population.
 economies - GDP, GINI, tax burden, etc. for a given state and year.
 
-Methodology and analyse
-The necessary scripts with notes that support these answers below are in research_questions_SQL_cripts. In all cases, the SQL language was used.
+METHODOLOGY AND ANALYSE
+The creation of required tables is described in t_Aneta_Siobos_project_SQL_primary_final and t_Aneta_Siobos_project_SQL_secondary_final.
+The necessary scripts with notes that support these answers below (analyse) are in research_questions_SQL_cripts. In all cases, the SQL language was used.
 
-Researching questions (RQ) and answears
+RESEARCHING QUESTIONS (RQ) AND ANSWEARS
 
 RQ 1) Are wages rising in all industries over the years, or falling in some?
 Wages for the monitored period (2011 - 2020) are decreasing in the sectors and years listed below. The listed sectors are in the Czech language:
