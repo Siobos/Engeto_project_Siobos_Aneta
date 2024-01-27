@@ -24,7 +24,7 @@ economies - GDP, GINI, tax burden, etc. for a given state and year.
 
 METHODOLOGY AND ANALYSE
 The creation of required tables is described in t_Aneta_Siobos_project_SQL_primary_final and t_Aneta_Siobos_project_SQL_secondary_final. During processing 2 additional supporting tables were created: czechia_payroll_selection and czechia_price_selection.
-The necessary scripts with notes that support these answers below (analyse) are in research_questions_SQL_cripts. In all cases, the SQL language was used. 
+The necessary scripts with notes that support these answers below (analyse) are in research_questions_SQL_cripts. In all cases, the SQL language was used. The CTE - Common table expression or "temporary tables" method was used to obtain answers to the research questions. Thanks to this, nested queries or storing continuous results in several tables are eliminated. The resulting scripts are more readable and shorter.
 
 RESEARCHING QUESTIONS (RQ) AND ANSWEARS
 
