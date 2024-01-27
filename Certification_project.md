@@ -8,8 +8,8 @@ Researching questions (RQ):
 RQ 1) Are wages rising in all industries over the years, or falling in some?
 Wages for the monitored period (2011 - 2020) are decreasing in the sectors and years listed below. The listed sectors are in the Czech language:
 
-2020	A	Zemědělství, lesnictví, rybářství
-2012	B	Těžba a dobývání
+2020	A Zemědělství, lesnictví, rybářství
+2012	B Těžba a dobývání
 2013	B	Těžba a dobývání
 2015	B	Těžba a dobývání
 2012	D	Výroba a rozvod elektřiny, plynu, tepla a klimatiz. vzduchu
@@ -45,10 +45,10 @@ On average in 2006, it is possible to buy 1297 kilograms of bread or 1482 liters
 RQ 3 ) Which food category is increasing in price the slowest (has the lowest percentage year-on-year increase)?
 The lowest percentage increase is for sugar and tomatoes. Values ​​are negative. Bananas and pork roast with bone are also slowly increasing in price (below 1%). 
 
-118101-crystal sugar	1kg	-2.27
-117101-tomatoes red	1kg	-2.01
-116103-bananas yelow	1kg	0.62
-112201-pork roast with bone	1kg	0.95
+crystal sugar	1kg	-2.27
+tomatoes red	1kg	-2.01
+bananas yelow	1kg	0.62
+pork roast with bone	1kg	0.95
 
 
 RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)?
