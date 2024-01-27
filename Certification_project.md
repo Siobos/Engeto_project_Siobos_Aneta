@@ -59,10 +59,7 @@ Yes, in 2006 and 2007 the year-on-year increase in food prices was significantly
 
 RQ 5 ) Does the level of GDP affect changes in wages and food prices? Or, if the GDP increases more significantly in one year, will this be reflected in food prices or wages in the same or the following year by a more significant increase?
 
-Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
-
-
-
+From the given data, it is not possible to clearly demonstrate a correlation between the development of GDP, average food prices and average wages. The situation was significantly affected by the economic crisis of 2008/2009.
 
 Analyse
 Method
