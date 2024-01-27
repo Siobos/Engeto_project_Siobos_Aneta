@@ -22,8 +22,10 @@ Additional tables:
 countries - All kinds of information about countries in the world, for example the capital, currency, national food or average height of the population.
 economies - GDP, GINI, tax burden, etc. for a given state and year.
 
+Methodology and analyse
+The necessary scripts with notes that support these answers below are in research_questions_SQL_cripts. In all cases, the SQL language was used.
+
 Researching questions (RQ) and answears
-The necessary scripts that support these answers are in research_questions_SQL_cripts.
 
 RQ 1) Are wages rising in all industries over the years, or falling in some?
 Wages for the monitored period (2011 - 2020) are decreasing in the sectors and years listed below. The listed sectors are in the Czech language:
@@ -63,7 +65,7 @@ On average in 2006, it is possible to buy 1297 kilograms of bread or 1482 liters
 2018	1l	20,00	milk	
 
 RQ 3 ) Which food category is increasing in price the slowest (has the lowest percentage year-on-year increase)?
-The lowest percentage increase is for sugar and tomatoes. Values ​​are negative. Bananas and pork roast with bone are also slowly increasing in price (below 1%). 
+The lowest percentage increase is for sugar and tomatoes. Values ​​are negative. Bananas and pork roast with bone are also slowly increasing in price (below 1 %). 
 
 crystal sugar	1kg	-2.27
 tomatoes red	1kg	-2.01
