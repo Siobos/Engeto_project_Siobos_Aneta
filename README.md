@@ -42,22 +42,22 @@ On average in 2006, it is possible to buy 1297 kilograms of bread or 1482 liters
 2018	1kg	24,00	bread	
 2018	1l	20,00	milk	
 
-
 RQ 3 ) Which food category is increasing in price the slowest (has the lowest percentage year-on-year increase)?
 The lowest percentage increase is for sugar and tomatoes. Values ​​are negative. Bananas and pork roast with bone are also slowly increasing in price (below 1%). 
 
-118101	crystal sugar	1kg	-2.27
-117101	tomatoes red	1kg	-2.01
-116103	bananas yelow	1kg	0.62
-112201	pork roast with bone	1kg	0.95
+118101-crystal sugar	1kg	-2.27
+117101-tomatoes red	1kg	-2.01
+116103-bananas yelow	1kg	0.62
+112201-pork roast with bone	1kg	0.95
 
 
 RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)?
 Yes, in 2006 and 2007 the year-on-year increase in food prices was significantly higher than wage growth. The gap between wage growth and food growth was the largest in 2007.
 
+2006	YOY_price: 14.29	YOY_payroll: 9,27
+2007	YOY_price: 37.50	YOY_payroll: 9,73
 
-
-Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+RQ 5 ) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
 
 
 
