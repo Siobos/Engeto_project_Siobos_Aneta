@@ -70,11 +70,11 @@ tomatoes red	1kg	-2.01
 bananas yelow	1kg	0.62
 pork roast with bone	1kg	0.95
 
-RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)?
+RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10 %)?
 Yes, in 2006 and 2007 the year-on-year increase in food prices was significantly higher than wage growth. The gap between wage growth and food growth was the largest in 2007.
 
-2006	YOY_price: 14.29	YOY_payroll: 9,27
-2007	YOY_price: 37.50	YOY_payroll: 9,73
+2006	YOY_price: 14.29 %	YOY_payroll: 9,27 %
+2007	YOY_price: 37.50 %	YOY_payroll: 9,73 %
 
 RQ 5 ) Does the level of GDP affect changes in wages and food prices? Or, if the GDP increases more significantly in one year, will this be reflected in food prices or wages in the same or the following year by a more significant increase?
 
