@@ -57,7 +57,9 @@ Yes, in 2006 and 2007 the year-on-year increase in food prices was significantly
 2006	YOY_price: 14.29	YOY_payroll: 9,27
 2007	YOY_price: 37.50	YOY_payroll: 9,73
 
-RQ 5 ) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+RQ 5 ) Does the level of GDP affect changes in wages and food prices? Or, if the GDP increases more significantly in one year, will this be reflected in food prices or wages in the same or the following year by a more significant increase?
+
+Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
 
 
 
