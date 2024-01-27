@@ -80,6 +80,3 @@ RQ 5 ) Does the level of GDP affect changes in wages and food prices? Or, if the
 
 From the given data, it is not possible to clearly demonstrate a correlation between the development of GDP, average food prices and average wages. The situation was significantly affected by the economic crisis of 2008/2009.
 
-Analyse
-Method
-Results
