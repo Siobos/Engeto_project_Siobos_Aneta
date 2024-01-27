@@ -1,5 +1,5 @@
 # Engeto_project_Siobos_Aneta
-Engeto Certification project
+Engeto Certification project from 2023/2024
 
 Entry
 This is a project for obtaining data analyst certification. The data sets that have been provided can be used to obtain a suitable data base. The desired output of the project is 2 tables (t_{name}_{surname}_project_SQL_...) from which the research questions can be answered and SQL scipts as well. 
