@@ -3,7 +3,7 @@
 CREATE TABLE czechia_payroll_selection 
 SELECT 
 	industry_branch_code, 
-	payroll_year, 
+	payroll_year AS year, 
 	cpib.name, 
 	cpvt.code AS additional_code,
 	cpu.name AS unit,
