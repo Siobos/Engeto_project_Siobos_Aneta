@@ -1,12 +1,12 @@
 /* STEP 1: PREPARATION OF CZECHIA_PAYROLL */
 
-CREATE TABLE czechia_payroll_selection
+CREATE TABLE czechia_price_selection 
 SELECT 
 	industry_branch_code, 
 	payroll_year, 
 	cpib.name, 
 	cpu.name AS unit,
-	cpvt.name,
+	cpvt.name AS value_type,
 	ROUND(AVG(value),2) AS avg_value
 FROM czechia_payroll cp 
 	LEFT JOIN czechia_payroll_industry_branch cpib 
