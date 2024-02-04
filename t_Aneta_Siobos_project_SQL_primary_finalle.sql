@@ -26,6 +26,7 @@ SELECT
 	YEAR(date_from) AS year,
 	category_code,
 	cpc.name,
+	region_code AS additional_code,
 	concat (cpc.price_value, cpc.price_unit) AS price_value_unit
 FROM czechia_price cp
 LEFT JOIN czechia_price_category cpc 
