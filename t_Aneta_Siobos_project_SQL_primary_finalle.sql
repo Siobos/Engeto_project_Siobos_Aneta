@@ -2,14 +2,20 @@
 
 CREATE TABLE czechia_payroll_selection
 SELECT 
-	industry_branch_code, payroll_year, cpib.name, cpu.name AS unit,
+	industry_branch_code, 
+	payroll_year, 
+	cpib.name, 
+	cpu.name AS unit,
+	cpvt.name,
 	ROUND(AVG(value),2) AS avg_value
 FROM czechia_payroll cp 
 	LEFT JOIN czechia_payroll_industry_branch cpib 
 	ON cp.industry_branch_code = cpib.code	
 	LEFT JOIN czechia_payroll_unit cpu
 	ON cp.unit_code = cpu.code	
-WHERE value_type_code = '5958' AND industry_branch_code IS NOT NULL
+	LEFT JOIN czechia_payroll_value_type cpvt
+	ON cp.value_type_code = cpvt.code	
+WHERE industry_branch_code IS NOT NULL
 GROUP BY industry_branch_code, payroll_year;
 
 /* STEP 2: PREPARATION OF CZECHIA_PRICE */
