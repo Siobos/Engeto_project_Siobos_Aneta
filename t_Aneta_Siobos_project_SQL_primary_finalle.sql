@@ -19,13 +19,13 @@ GROUP BY additional_code, industry_branch_code, payroll_year;
 
 /* STEP 2: PREPARATION OF CZECHIA_PRICE */
 
-CREATE TABLE czechia_price_selection
 SELECT 
 	ROUND(AVG(value),2) AS avg_value,
 	YEAR(date_from) AS year,
 	category_code,
 	cpc.name,
-	region_code AS additional_code,
+	region_code AS additional_code, /* region_code uninformative now, becouse of GROUP OF, used for UNION merge
+	so that the number of columns agrees and it is better to work with the data further */
 	concat (cpc.price_value, cpc.price_unit) AS price_value_unit
 FROM czechia_price cp
 LEFT JOIN czechia_price_category cpc 
