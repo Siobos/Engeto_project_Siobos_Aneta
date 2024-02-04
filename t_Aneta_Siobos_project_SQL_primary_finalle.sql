@@ -6,7 +6,7 @@ SELECT
 	payroll_year, 
 	cpib.name, 
 	cpu.name AS unit,
-	cpvt.name AS value_type,
+	cpvt.name AS type_code,
 	ROUND(AVG(value),2) AS avg_value
 FROM czechia_payroll cp 
 	LEFT JOIN czechia_payroll_industry_branch cpib 
