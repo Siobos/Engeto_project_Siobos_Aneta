@@ -33,15 +33,13 @@ LEFT JOIN czechia_price_category cpc
 	ON cp.category_code = cpc.code
 GROUP BY year(date_from), category_code;
 
-/* STEP 3: MERGING NEW TABLES AS PRIMARY FINAL TABLE: t_Aneta_Siobos_project_SQL_primary_final
-Note: Solving the error (Illegal mix of collations (utf8mb3_czech_ci,IMPLICIT) 
-and (utf16_general_ci,IMPLICIT) for operation 'UNION') using: COLLATE utf8_general_ci */
+/* STEP 3: MERGING NEW TABLES AS PRIMARY FINAL TABLE: t_Aneta_Siobos_project_SQL_primary_final */
 
 CREATE TABLE t_Aneta_Siobos_project_SQL_primary_final
-SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci AS unit
+SELECT *
 FROM czechia_payroll_selection cps 
 UNION ALL
-SELECT year, category_code, name, avg_value, unit COLLATE utf8_general_ci
+SELECT *
 FROM czechia_price_selection cps2;
 
 
