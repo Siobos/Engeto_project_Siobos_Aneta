@@ -1,12 +1,12 @@
 /* STEP 1: PREPARATION OF CZECHIA_PAYROLL */
 
-CREATE TABLE czechia_payroll_selection 
+CREATE TABLE t_aneta_siobos_project_sql_primary_final 
 SELECT 
 	industry_branch_code, 
 	payroll_year, 
 	cpib.name, 
-	cpu.name AS unit,
 	cpvt.name AS additional_code,
+	cpu.name AS unit,
 	ROUND(AVG(value),2) AS avg_value
 FROM czechia_payroll cp 
 	LEFT JOIN czechia_payroll_industry_branch cpib 
@@ -14,9 +14,8 @@ FROM czechia_payroll cp
 	LEFT JOIN czechia_payroll_unit cpu
 	ON cp.unit_code = cpu.code	
 	LEFT JOIN czechia_payroll_value_type cpvt
-	ON cp.value_type_code = cpvt.code	
-WHERE industry_branch_code IS NOT NULL
-GROUP BY industry_branch_code, payroll_year;
+	ON cp.value_type_code = cpvt.code
+GROUP BY additional_code, industry_branch_code, payroll_year; 
 
 /* STEP 2: PREPARATION OF CZECHIA_PRICE */
 
