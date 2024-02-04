@@ -1,11 +1,11 @@
 /* STEP 1: PREPARATION OF CZECHIA_PAYROLL */
 
-CREATE TABLE t_aneta_siobos_project_sql_primary_final 
+CREATE TABLE czechia_payroll_selection 
 SELECT 
 	industry_branch_code, 
 	payroll_year, 
 	cpib.name, 
-	cpvt.name AS additional_code,
+	cpvt.code AS additional_code,
 	cpu.name AS unit,
 	ROUND(AVG(value),2) AS avg_value
 FROM czechia_payroll cp 
