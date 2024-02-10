@@ -17,18 +17,17 @@ GROUP BY industry_branch_code, payroll_year;
 
 /* STEP 2: PREPARATION OF CZECHIA_PRICE */
 
+CREATE TABLE czechia_price_selection
 SELECT 
-	ROUND(AVG(value),2) AS avg_value,
-	YEAR(date_from) AS year,
-	category_code,
-	cpc.name,
-	region_code AS additional_code, /* region_code uninformative now, becouse of GROUP OF, used for UNION merge
-	so that the number of columns agrees and it is better to work with the data further */
-	concat (cpc.price_value, cpc.price_unit) AS price_value_unit
+ROUND(AVG(value),2) AS avg_value,
+YEAR(date_from) AS year,
+category_code,
+cpc.name,
+concat (cpc.price_value, cpc.price_unit) AS price_value_unit
 FROM czechia_price cp
 LEFT JOIN czechia_price_category cpc 
-	ON cp.category_code = cpc.code
-GROUP BY year(date_from), category_code;
+ON cp.category_code = cpc.code
+GROUP BY category_code, YEAR;
 
 /* STEP 3: MERGING NEW TABLES AS PRIMARY FINAL TABLE: t_Aneta_Siobos_project_SQL_primary_final */
 
