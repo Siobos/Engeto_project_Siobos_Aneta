@@ -2,11 +2,11 @@
 
 CREATE TABLE czechia_payroll_selection 
 SELECT 
-	industry_branch_code, 
+	ROUND(AVG(value),0) AS avg_value,
 	payroll_year AS year, 
+	industry_branch_code AS code, 
 	cpib.name, 
-	cpu.name AS unit,
-	ROUND(AVG(value),0) AS avg_value
+	cpu.name AS unit
 FROM czechia_payroll cp 
 	LEFT JOIN czechia_payroll_industry_branch cpib 
 	ON cp.industry_branch_code = cpib.code	
@@ -21,9 +21,9 @@ CREATE TABLE czechia_price_selection
 SELECT 
 ROUND(AVG(value),2) AS avg_value,
 YEAR(date_from) AS year,
-category_code,
+category_code AS code,
 cpc.name,
-concat (cpc.price_value, cpc.price_unit) AS price_value_unit
+concat (cpc.price_value, cpc.price_unit) AS unit
 FROM czechia_price cp
 LEFT JOIN czechia_price_category cpc 
 ON cp.category_code = cpc.code
@@ -31,7 +31,7 @@ GROUP BY category_code, YEAR;
 
 /* STEP 3: MERGING NEW TABLES AS PRIMARY FINAL TABLE: t_Aneta_Siobos_project_SQL_primary_final */
 
-CREATE TABLE t_Aneta_Siobos_project_SQL_primary_final
+CREATE TABLE t_Aneta_Siobos_project_sql_primary_final
 SELECT *
 FROM czechia_payroll_selection cps 
 UNION ALL
