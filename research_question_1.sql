@@ -2,6 +2,7 @@
 
 RQ 1) Are wages rising in all industries over the years, or falling in some? */
 
+/* Control of year-on-year wage changes by individual sector */
 WITH t_aneta_siobos_project_sql_primary_final_calculations AS (
 SELECT *,
 	LEAD(avg_value, 1) OVER (
@@ -17,5 +18,11 @@ SELECT *,
         ELSE '-'
     END AS grow
 FROM t_aneta_siobos_project_sql_primary_final_calculations
-WHERE unit = 'Kč' AND YEAR BETWEEN 2011 AND 2020
+WHERE unit = 'Kč' AND YEAR BETWEEN 2011 AND 2020              -- unit "Kč" limits the selection in the table to wages only" --
 ORDER BY grow, code, YEAR;
+
+/* Comparison of 2011 and 2020 for individual sectors */
+SELECT *
+FROM t_aneta_siobos_project_sql_primary_final taspspf 
+WHERE unit = 'Kč' AND YEAR IN ('2011', '2020')
+ORDER BY code, YEAR;
