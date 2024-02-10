@@ -85,13 +85,9 @@ More accurate results can be obtained by finding average wages directly from the
 In this case on average in 2006, it is possible to buy 1308 kilograms of bread or 1460 liters of milk. In 2018, it is possible to purchase 1363 kilograms of bread or 1667 liters of milk.
 
 RQ 3 ) Which food category has the lowest percentage year-on-year increase in price??
-The lowest percentage increase is for tomatoes, apples, pork with bone, carrot and sausage. Values ​​are negative. Bananas and pork roast with bone are also slowly increasing in price (below 1 %). 
 
-tomatoes	Kč/1kg	-30.28
-apples	Kč/1kg	-7.23
-pork with bone	Kč/1kg	-2.17
-carrot Kč/1kg	-1.6
-sausage Kč/1kg	-0.28
+The lowest percentage increase is for tomatoes and sugar. Values ​​are negative. 
+Carrot and apple are slowly increasing in price (below 10 %). 
 
 RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10 %)?
 Yes, in 2006 and 2007 the year-on-year increase in food prices was significantly higher than wage growth. The gap between wage growth and food growth was the largest in 2007.
