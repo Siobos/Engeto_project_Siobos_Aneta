@@ -23,7 +23,7 @@ ROUND(AVG(value),2) AS avg_value,
 YEAR(date_from) AS year,
 category_code AS code,
 cpc.name,
-concat (cpc.price_value, cpc.price_unit) AS unit
+concat ('Kč/', cpc.price_value, cpc.price_unit) AS unit
 FROM czechia_price cp
 LEFT JOIN czechia_price_category cpc 
 ON cp.category_code = cpc.code
