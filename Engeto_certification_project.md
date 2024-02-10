@@ -72,6 +72,9 @@ On average in 2006, it is possible to buy 1297 kilograms of bread or 1482 liters
 2018	1kg	24,00	bread	
 2018	1l	20,00	milk	
 
+More accurate results can be obtained by finding average wages directly from the input data (Czechia_payroll), where there are data for which the sector was not specified more closely. The required primary table (t_aneta_siobos_project_sql_primary_final) has been purged of this data.
+In this case on average in 2006, it is possible to buy 1308 kilograms of bread or 1460 liters of milk. In 2018, it is possible to purchase 1363 kilograms of bread or 1667 liters of milk.
+
 RQ 3 ) Which food category is increasing in price the slowest (has the lowest percentage year-on-year increase)?
 The lowest percentage increase is for sugar and tomatoes. Values ​​are negative. Bananas and pork roast with bone are also slowly increasing in price (below 1 %). 
 
