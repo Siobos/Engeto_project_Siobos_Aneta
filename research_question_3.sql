@@ -1,4 +1,4 @@
-/* RQ 3) Which food category is increasing in price the slowest (has the lowest percentage year-on-year increase)? */
+/* RQ 3) Which food category has the lowest percentage year-on-year increase in price?? */
 
 WITH czechia_price_selection_calculation AS (
 SELECT *,
