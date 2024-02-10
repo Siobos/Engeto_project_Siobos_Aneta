@@ -3,10 +3,11 @@
 WITH czechia_price_selection_calculation AS (
 SELECT *,
 	LEAD(avg_value, 1) OVER (
-	PARTITION BY category_code
+	PARTITION BY code
 ORDER BY year
 	) lead_function
 FROM czechia_price_selection
+WHERE YEAR !=  2018
 )
 SELECT *, ROUND((lead_function-avg_value)/(avg_value)*100,0) AS YOY_change
 FROM czechia_price_selection_calculation;
