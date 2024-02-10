@@ -1,6 +1,6 @@
 /* RESEARCH QUESTIONS (RQ): 
 
-RQ 1) Are wages rising in all industries over the years, or falling in some? */
+RQ 1) Are average incomes increasing in all industries over the years? Or are there industries in Czech Republic where average incomes are decreasing? */
 
 /* Control of year-on-year wage changes by individual sector */
 WITH t_aneta_siobos_project_sql_primary_final_calculations AS (
