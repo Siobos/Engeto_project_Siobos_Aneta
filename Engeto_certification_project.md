@@ -84,8 +84,7 @@ More accurate results can be obtained by finding average wages directly from the
 
 In this case on average in 2006, it is possible to buy 1308 kilograms of bread or 1460 liters of milk. In 2018, it is possible to purchase 1363 kilograms of bread or 1667 liters of milk.
 
-
-RQ 3 ) Which food category is increasing in price the slowest (has the lowest percentage year-on-year increase)?
+RQ 3 ) Which food category has the lowest percentage year-on-year increase in price??
 The lowest percentage increase is for sugar and tomatoes. Values ​​are negative. Bananas and pork roast with bone are also slowly increasing in price (below 1 %). 
 
 crystal sugar	1kg	-2.27
