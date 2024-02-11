@@ -1,10 +1,8 @@
-# Engeto_project_Siobos_Aneta
-ENGETO CERTIFICATION PROJECT FROM 2023/2024
-
+# Engeto_project_Siobos_Aneta 2023/2024
 Discord: aneta.siobos
 
 ENTRY 
-Project for obtaining data analyst certification from ENGETO academy.
+Project for obtaining data analyst certification from ENGETO Academy.
 The data sets that have been provided can be used to obtain a suitable data base. The desired output of the project is 2 tables (t_{name}_{surname}_project_SQL_...) from which the research questions can be answered and SQL scipts as well. 
 
 Main goal of the project was to compare the availability of basic food products based on average incomes in Czech Republic over a period of time. In addition, there were 5 research questions, that needed to be answered.
