@@ -97,7 +97,7 @@ RQ 4) Is there a year in which the year-on-year increase in food prices was sign
 
 In the reference periods there was no year where year-on-year increase in food prices was significantly higher (greater than 10%) than income growth.
 
-RQ 5 ) Does the level of GDP affect changes in wages and food prices? Or, if the GDP increases more significantly in one year, will this be reflected in food prices or wages in the same or the following year by a more significant increase?
+RQ 5 ) Does the level of GDP in Czech Republic affect changes in incomes and food prices in the same or follwoing year?
 
 From the given data, it is not possible to clearly demonstrate a correlation between the development of GDP, average food prices and average wages. The situation was significantly affected by the economic crisis of 2008/2009.
 
