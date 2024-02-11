@@ -1,6 +1,7 @@
 /* RQ 5) /* Does the level of GDP in Czech Republic affect changes in incomes and food prices in the same or follwoing year? */
 
-/* Note: Using the previous selection (RQ 4) to create new table czechia_price_and_payroll_selection, which will then be joined to the table t_aneta_siobos_project_sql_secondary_final */
+/* Note: Using the previous selection (RQ 4) to create new table czechia_price_and_payroll_selection, 
+which will then be joined to the table t_aneta_siobos_project_sql_secondary_final */
 
 -- STEP 1: --
 
