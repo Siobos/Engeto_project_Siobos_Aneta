@@ -3,8 +3,11 @@ ENGETO CERTIFICATION PROJECT FROM 2023/2024
 
 Discord: aneta.siobos
 
-ENTRY
-This is a project for obtaining data analyst certification. The data sets that have been provided can be used to obtain a suitable data base. The desired output of the project is 2 tables (t_{name}_{surname}_project_SQL_...) from which the research questions can be answered and SQL scipts as well. 
+ENTRY 
+Project for obtaining data analyst certification. 
+The data sets that have been provided can be used to obtain a suitable data base. The desired output of the project is 2 tables (t_{name}_{surname}_project_SQL_...) from which the research questions can be answered and SQL scipts as well. 
+
+Main goal of the project was to compare the availability of basic food products based on average incomes in Czech Republic over a period of time. In addition, there were 5 research questions, that needed to be answered.
 
 Data sets that can be used to obtain a suitable data base:
 Primary tables:
