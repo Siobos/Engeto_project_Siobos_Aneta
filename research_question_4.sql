@@ -1,4 +1,4 @@
-/* RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)? */
+/* RQ 4) Is there a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)? */
 
 WITH czechia_price_selection_YOY_change AS (
     SELECT *,
