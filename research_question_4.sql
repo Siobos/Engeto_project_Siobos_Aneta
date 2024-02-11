@@ -30,3 +30,9 @@ FROM payroll_data p
 JOIN price_data pr ON p.year = pr.year;
 
 -- YOY_change calculation --
+
+SELECT 
+  	*,
+    ROUND((lead_function_payroll - avg_payroll_general) / avg_payroll_general * 100, 2) AS YOY_change_price,
+    ROUND((lead_function_price - avg_price_food_general) / avg_price_food_general * 100, 2) AS YOY_change_payroll
+FROM combined_table ct;
