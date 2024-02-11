@@ -1,7 +1,7 @@
 # Engeto_project_Siobos_Aneta 2023/2024
 Discord: aneta.siobos
 
-- ENTRY 
+ENTRY 
 Project for obtaining data analyst certification from ENGETO Academy.
 The data sets that have been provided can be used to obtain a suitable data base. The desired output of the project is 2 tables (t_{name}_{surname}_project_SQL_...) from which the research questions can be answered and SQL scipts as well. 
 
@@ -9,28 +9,28 @@ Main goal of the project was to compare the availability of basic food products 
 
 Data sets that can be used to obtain a suitable data base:
 Primary tables:
-czechia_payroll – Information on wages in various industries over a period of several years. The data set comes from the Open Data Portal of the Czech Republic.
-czechia_payroll_calculation – Number of calculations in the salary table.
-czechia_payroll_industry_branch – Sector number in the wage table.
-czechia_payroll_unit – Numeral of the units of the values ​​in the wage table.
-czechia_payroll_value_type – Index of value types in the salary table.
-czechia_price – Information on the prices of selected foods over a period of several years. The data set comes from the Open Data Portal of the Czech Republic.
-czechia_price_category – Index of food categories that appear in our overview.
+- czechia_payroll – Information on wages in various industries over a period of several years. The data set comes from the Open Data Portal of the Czech Republic.
+- czechia_payroll_calculation – Number of calculations in the salary table.
+- czechia_payroll_industry_branch – Sector number in the wage table.
+- czechia_payroll_unit – Numeral of the units of the values ​​in the wage table.
+- czechia_payroll_value_type – Index of value types in the salary table.
+- czechia_price – Information on the prices of selected foods over a period of several years. The data set comes from the Open Data Portal of the Czech Republic.
+- czechia_price_category – Index of food categories that appear in our overview.
 
 Codes of shared information about the Czech Republic:
-czechia_region – Code of the regions of the Czech Republic according to the standard CZ-NUTS 2.
-czechia_district – Code of the districts of the Czech Republic according to the standard LAU.
+- czechia_region – Code of the regions of the Czech Republic according to the standard CZ-NUTS 2.
+- czechia_district – Code of the districts of the Czech Republic according to the standard LAU.
 
-  Additional tables:
+Additional tables:
 countries - All kinds of information about countries in the world, for example the capital, currency, national food or average height of the population.
 economies - GDP, GINI, tax burden, etc. for a given state and year.
 
 METHODOLOGY AND ANALYSE
 The creation of required tables is described in t_Aneta_Siobos_project_SQL_primary_final and t_Aneta_Siobos_project_SQL_secondary_final. During processing 4 additional supporting tables were created: 
-czechia_payroll_selection
-czechia_price_selection 
-czechia_price_and_payroll_selection
-combined_table
+- czechia_payroll_selection
+- czechia_price_selection 
+- czechia_price_and_payroll_selection
+- combined_table
 The necessary scripts with notes that support these answers below (analyse) are in research_questions_SQL_cripts. In all cases, the SQL language was used. The CTE - Common table expression or "temporary tables" method was used to obtain answers to the research questions. Thanks to this, nested queries or storing continuous results in several tables are eliminated. The resulting scripts are more readable and shorter.
 
 RESEARCHING QUESTIONS (RQ) AND ANSWEARS
