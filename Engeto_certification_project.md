@@ -90,10 +90,8 @@ The lowest percentage increase is for tomatoes and sugar. Values ​​are negat
 Carrot and apple are slowly increasing in price (below 10 %). 
 
 RQ 4) Is there a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)?
-Yes, in 2006 and 2007 the year-on-year increase in food prices was significantly higher than wage growth. The gap between wage growth and food growth was the largest in 2007.
 
-2006	YOY_price: 14.29 %	YOY_payroll: 9,27 %
-2007	YOY_price: 37.50 %	YOY_payroll: 9,73 %
+In the reference periods there was no year where year-on-year increase in food prices was significantly higher (greater than 10%) than income growth.
 
 RQ 5 ) Does the level of GDP affect changes in wages and food prices? Or, if the GDP increases more significantly in one year, will this be reflected in food prices or wages in the same or the following year by a more significant increase?
 
