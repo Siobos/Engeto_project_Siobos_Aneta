@@ -89,7 +89,7 @@ RQ 3 ) Which food category has the lowest percentage year-on-year increase in pr
 The lowest percentage increase is for tomatoes and sugar. Values ​​are negative. 
 Carrot and apple are slowly increasing in price (below 10 %). 
 
-RQ 4) Has there been a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10 %)?
+RQ 4) Is there a year in which the year-on-year increase in food prices was significantly higher than wage growth (greater than 10%)?
 Yes, in 2006 and 2007 the year-on-year increase in food prices was significantly higher than wage growth. The gap between wage growth and food growth was the largest in 2007.
 
 2006	YOY_price: 14.29 %	YOY_payroll: 9,27 %
