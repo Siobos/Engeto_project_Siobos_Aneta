@@ -21,7 +21,7 @@ Codes of shared information about the Czech Republic:
 czechia_region – Code of the regions of the Czech Republic according to the standard CZ-NUTS 2.
 czechia_district – Code of the districts of the Czech Republic according to the standard LAU.
 
-Additional tables:
+  Additional tables:
 countries - All kinds of information about countries in the world, for example the capital, currency, national food or average height of the population.
 economies - GDP, GINI, tax burden, etc. for a given state and year.
 
