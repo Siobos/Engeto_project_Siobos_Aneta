@@ -1,8 +1,8 @@
-/* RQ 5) Does the level of GDP affect changes in wages and food prices? Or, if the GDP increases more significantly in one year, will this be reflected in food prices or wages in the same or the following year */ by a more significant increase?
+/* RQ 5) /* Does the level of GDP in Czech Republic affect changes in incomes and food prices in the same or follwoing year? */
 
 /* Note: Using the previous selection (RQ 4) to create new table czechia_price_and_payroll_selection, which will then be joined to the table t_aneta_siobos_project_sql_secondary_final */
 
-/* STEP 1: */
+-- STEP 1: --
 
 CREATE TABLE czechia_price_and_payroll_selection
 WITH czechia_price_selection_YOY_change AS (
@@ -28,7 +28,7 @@ SELECT
 FROM czechia_price_selection_YOY_change p
 INNER JOIN czechia_payroll_selection_YOY_change pr ON p.year = pr.YEAR;
 
-/* STEP 2: */
+-- STEP 2: --
 
 SELECT 
 	cpaps.YEAR, 
